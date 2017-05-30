@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CategoryViewController: UIViewController {
 
-    var categories = [Category]()
+    var categories: Results<Category>?
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -23,11 +24,7 @@ class CategoryViewController: UIViewController {
 
     
     func initializeCategories(){
-        let economyCategory = Category(name: "Economía", image: "economy", type: .economy)
-        let sportsCategory = Category(name: "Sports", image: "sports", type: .sports)
-        let technologyCategory = Category(name: "Tecnología", image: "technology", type: .technology)
-        let incidentCategory = Category(name: "Sucesos", image: "incident", type: .incedents)
-        categories = [economyCategory,sportsCategory,technologyCategory,incidentCategory]
+        categories = RealmManager.getAllCategories()
     }
 }
 
@@ -35,20 +32,21 @@ class CategoryViewController: UIViewController {
 extension CategoryViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let categories = categories else {
+            return 0
+        }
         return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.getTableViewCellIdentifier()) as! CategoryTableViewCell
-        cell.setupCell(category: categories[indexPath.row])
+        cell.setupCell(category: categories![indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newsViewController = storyboard?.instantiateViewController(withIdentifier: NewsViewController.getViewControllerIdentifier()) as! NewsViewController
-        newsViewController.news = categories[indexPath.row].newsArray
-        newsViewController.categoryType = categories[indexPath.row].type
-        newsViewController.delegate = self
+            newsViewController.categoryType = categories![indexPath.row].type
         navigationController?.pushViewController(newsViewController, animated: true)
     }
     
@@ -58,14 +56,3 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate{
 
 }
 
-
-extension CategoryViewController:NewsViewControllerDelegate{
-    func addNews(news: [News], categoryType: CategoryType) {
-        let index = categories.index {$0.type == categoryType}
-        if let indexUnwraped = index{
-            let categoryToUpdate = categories[indexUnwraped]
-            categoryToUpdate.newsArray = news
-            categories[indexUnwraped] = categoryToUpdate
-        }
-    }
-}

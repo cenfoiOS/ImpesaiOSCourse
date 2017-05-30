@@ -9,9 +9,7 @@
 import UIKit
 
 
-protocol NewsDetailTableViewControllerDelegate: class {
-    func addNews(news: News)
-}
+
 
 
 class NewsDetailTableViewController: UITableViewController {
@@ -19,7 +17,7 @@ class NewsDetailTableViewController: UITableViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    weak var delegate: NewsDetailTableViewControllerDelegate?
+    var categoryType = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +32,7 @@ class NewsDetailTableViewController: UITableViewController {
     
     
     func saveNewsAction(){
-        let news = News(titleNews: titleTextField.text!, descriptionNews: descriptionTextView.text!, createdAt: Date())
-        delegate?.addNews(news: news)
+        RealmManager.createNews(categoryType: categoryType, title: titleTextField.text!, description: descriptionTextView.text)
         navigationController?.popViewController(animated: true)
     }
 

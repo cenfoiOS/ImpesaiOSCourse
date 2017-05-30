@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B8509DC3327359FD78042AB /* Pods_News.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 425254A07BA9E9A01313139D /* Pods_News.framework */; };
+		7823FDDD1ED79A9F001EF1C3 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7823FDDC1ED79A9F001EF1C3 /* RealmManager.swift */; };
 		787F92501ED4EBED005C7D88 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F924E1ED4EBED005C7D88 /* NewsTableViewCell.swift */; };
 		787F92511ED4EBED005C7D88 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 787F924F1ED4EBED005C7D88 /* NewsTableViewCell.xib */; };
 		787F92531ED5031F005C7D88 /* NewsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F92521ED5031F005C7D88 /* NewsDetailTableViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		425254A07BA9E9A01313139D /* Pods_News.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7823FDDC1ED79A9F001EF1C3 /* RealmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		787F924E1ED4EBED005C7D88 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		787F924F1ED4EBED005C7D88 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		787F92521ED5031F005C7D88 /* NewsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		78AEAF231ECE7514000DF09E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		78AEAF261ECE7E48000DF09E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		78AEAF271ECE7E48000DF09E /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		C0AAD27C8BBA13EFAD20FE3C /* Pods-News.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.release.xcconfig"; path = "Pods/Target Support Files/Pods-News/Pods-News.release.xcconfig"; sourceTree = "<group>"; };
+		D469FAC534CE7E76D8093E8A /* Pods-News.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News.debug.xcconfig"; path = "Pods/Target Support Files/Pods-News/Pods-News.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,12 +51,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B8509DC3327359FD78042AB /* Pods_News.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7823FDDB1ED79A75001EF1C3 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7823FDDC1ED79A9F001EF1C3 /* RealmManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		787F924D1ED4EBC8005C7D88 /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +80,8 @@
 			children = (
 				78AEAF051ECE65EE000DF09E /* News */,
 				78AEAF041ECE65EE000DF09E /* Products */,
+				D443449E320FE35391E7F664 /* Pods */,
+				89A40CB088FFBF5AF8705AE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +96,7 @@
 		78AEAF051ECE65EE000DF09E /* News */ = {
 			isa = PBXGroup;
 			children = (
+				7823FDDB1ED79A75001EF1C3 /* Managers */,
 				78AEAF1E1ECE7334000DF09E /* Extensions */,
 				78AEAF191ECE71A7000DF09E /* News */,
 				78AEAF181ECE71A0000DF09E /* Categories */,
@@ -128,6 +146,23 @@
 			name = CustomCell;
 			sourceTree = "<group>";
 		};
+		89A40CB088FFBF5AF8705AE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				425254A07BA9E9A01313139D /* Pods_News.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D443449E320FE35391E7F664 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D469FAC534CE7E76D8093E8A /* Pods-News.debug.xcconfig */,
+				C0AAD27C8BBA13EFAD20FE3C /* Pods-News.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78AEAF151ECE65EE000DF09E /* Build configuration list for PBXNativeTarget "News" */;
 			buildPhases = (
+				0D45BF27523EE619748E9253 /* [CP] Check Pods Manifest.lock */,
 				78AEAEFF1ECE65EE000DF09E /* Sources */,
 				78AEAF001ECE65EE000DF09E /* Frameworks */,
 				78AEAF011ECE65EE000DF09E /* Resources */,
+				7DBEE887F8912866BAD63B1F /* [CP] Embed Pods Frameworks */,
+				606497633F00A78D709B753E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,6 +235,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D45BF27523EE619748E9253 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		606497633F00A78D709B753E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-News/Pods-News-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DBEE887F8912866BAD63B1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-News/Pods-News-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		78AEAEFF1ECE65EE000DF09E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -209,6 +295,7 @@
 				78AEAF221ECE7505000DF09E /* News.swift in Sources */,
 				78AEAF281ECE7E48000DF09E /* CategoryTableViewCell.swift in Sources */,
 				78AEAF201ECE733E000DF09E /* Helper.swift in Sources */,
+				7823FDDD1ED79A9F001EF1C3 /* RealmManager.swift in Sources */,
 				787F92531ED5031F005C7D88 /* NewsDetailTableViewController.swift in Sources */,
 				78AEAF241ECE7514000DF09E /* Category.swift in Sources */,
 			);
@@ -323,6 +410,7 @@
 		};
 		78AEAF161ECE65EE000DF09E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D469FAC534CE7E76D8093E8A /* Pods-News.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -337,6 +425,7 @@
 		};
 		78AEAF171ECE65EE000DF09E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0AAD27C8BBA13EFAD20FE3C /* Pods-News.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

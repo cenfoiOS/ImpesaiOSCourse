@@ -26,7 +26,7 @@ class CategoryTableViewCell: UITableViewCell {
     
     
     func setupCell(category: Category){
-        categoryImageView.image = category.image
+        categoryImageView.image = UIImage(named: category.imageName)
         namelabel.text = category.name
     }
     
