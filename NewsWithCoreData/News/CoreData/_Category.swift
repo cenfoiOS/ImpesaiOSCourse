@@ -1,24 +1,24 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to CategoryModel.swift instead.
+// Make changes to Category.swift instead.
 
 import Foundation
 import CoreData
 
-public enum CategoryModelAttributes: String {
+public enum CategoryAttributes: String {
     case imageName = "imageName"
     case name = "name"
 }
 
-public enum CategoryModelRelationships: String {
+public enum CategoryRelationships: String {
     case news = "news"
 }
 
-open class _CategoryModel: NSManagedObject {
+open class _Category: NSManagedObject {
 
     // MARK: - Class methods
 
     open class func entityName () -> String {
-        return "CategoryModel"
+        return "Category"
     }
 
     open class func entity(managedObjectContext: NSManagedObjectContext) -> NSEntityDescription? {
@@ -32,7 +32,7 @@ open class _CategoryModel: NSManagedObject {
     }
 
     public convenience init?(managedObjectContext: NSManagedObjectContext) {
-        guard let entity = _CategoryModel.entity(managedObjectContext: managedObjectContext) else { return nil }
+        guard let entity = _Category.entity(managedObjectContext: managedObjectContext) else { return nil }
         self.init(entity: entity, insertInto: managedObjectContext)
     }
 
@@ -55,7 +55,7 @@ open class _CategoryModel: NSManagedObject {
 
 }
 
-extension _CategoryModel {
+extension _Category {
 
     open func addNews(_ objects: NSSet) {
         let mutable = self.news.mutableCopy() as! NSMutableSet
@@ -69,13 +69,13 @@ extension _CategoryModel {
         self.news = mutable.copy() as! NSSet
     }
 
-    open func addNewsObject(_ value: NewsModel) {
+    open func addNewsObject(_ value: News) {
         let mutable = self.news.mutableCopy() as! NSMutableSet
         mutable.add(value)
         self.news = mutable.copy() as! NSSet
     }
 
-    open func removeNewsObject(_ value: NewsModel) {
+    open func removeNewsObject(_ value: News) {
         let mutable = self.news.mutableCopy() as! NSMutableSet
         mutable.remove(value)
         self.news = mutable.copy() as! NSSet

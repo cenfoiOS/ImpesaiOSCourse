@@ -28,9 +28,9 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func setupCell(news: News){
-        titleLabel.text = news.titleNews
+        titleLabel.text = news.title
         descriptionLabel.text = news.descriptionNews
-        dateLabel.text = news.createdAt.toString(dateFormat: "yyyy-MM-dd HH:mm:ss")
+        dateLabel.text = news.createdAt!.toString(dateFormat: "yyyy-MM-dd HH:mm:ss")
     }
     
 }

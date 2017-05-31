@@ -1,25 +1,25 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to NewsModel.swift instead.
+// Make changes to News.swift instead.
 
 import Foundation
 import CoreData
 
-public enum NewsModelAttributes: String {
+public enum NewsAttributes: String {
     case createdAt = "createdAt"
     case descriptionNews = "descriptionNews"
     case title = "title"
 }
 
-public enum NewsModelRelationships: String {
+public enum NewsRelationships: String {
     case category = "category"
 }
 
-open class _NewsModel: NSManagedObject {
+open class _News: NSManagedObject {
 
     // MARK: - Class methods
 
     open class func entityName () -> String {
-        return "NewsModel"
+        return "News"
     }
 
     open class func entity(managedObjectContext: NSManagedObjectContext) -> NSEntityDescription? {
@@ -33,7 +33,7 @@ open class _NewsModel: NSManagedObject {
     }
 
     public convenience init?(managedObjectContext: NSManagedObjectContext) {
-        guard let entity = _NewsModel.entity(managedObjectContext: managedObjectContext) else { return nil }
+        guard let entity = _News.entity(managedObjectContext: managedObjectContext) else { return nil }
         self.init(entity: entity, insertInto: managedObjectContext)
     }
 
@@ -51,7 +51,7 @@ open class _NewsModel: NSManagedObject {
     // MARK: - Relationships
 
     @NSManaged open
-    var category: CategoryModel?
+    var category: Category?
 
 }
 
