@@ -7,6 +7,7 @@ import CoreData
 public enum CategoryAttributes: String {
     case imageName = "imageName"
     case name = "name"
+    case type = "type"
 }
 
 public enum CategoryRelationships: String {
@@ -43,6 +44,9 @@ open class _Category: NSManagedObject {
 
     @NSManaged open
     var name: String?
+
+    @NSManaged open
+    var type: NSNumber?
 
     // MARK: - Relationships
 
