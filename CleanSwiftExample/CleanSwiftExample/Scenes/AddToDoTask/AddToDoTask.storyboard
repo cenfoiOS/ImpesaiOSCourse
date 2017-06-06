@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add To Do Task View Controller-->
+        <scene sceneID="Jep-Ub-fXv">
+            <objects>
+                <viewController storyboardIdentifier="AddToDoTaskViewController" id="LHh-U6-Cld" customClass="AddToDoTaskViewController" customModule="CleanSwiftExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sco-iP-fKE"/>
+                        <viewControllerLayoutGuide type="bottom" id="pn7-L6-CYq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZKb-ee-btA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="f2G-Fv-66H"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o4K-Bg-5hD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="73.313343328335833"/>
+        </scene>
+    </scenes>
+</document>
