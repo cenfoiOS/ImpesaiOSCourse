@@ -22,4 +22,9 @@ struct Constants{
     static let TRANSLATE_RESULT_KEY = "TRANSLATE_RESULT_KEY"
     static let TEXT_TRANSLATED_KEY = "text"
     static let API_HEADER_KEY = "X-Mashape-Key"
+
+    enum LanguageType: Int {
+        case origin = 0, destination
+    }
+    
 }

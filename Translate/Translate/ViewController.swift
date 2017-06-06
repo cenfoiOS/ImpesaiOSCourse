@@ -18,13 +18,15 @@ class ViewController: UIViewController,NVActivityIndicatorViewable {
     
     
     var languagesArray: [[String:String]]?
+    var originLanguage: String?
+    var destinationLanguage: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //showActivityIndicator()
-        //registerNotifications()
-        //APIManager.getLanguages()
+        showActivityIndicator()
+        registerNotifications()
+        APIManager.getLanguages()
     }
     
     func registerNotifications(){
@@ -59,24 +61,60 @@ class ViewController: UIViewController,NVActivityIndicatorViewable {
     }
    
     @IBAction func originLanguageAction(_ sender: Any) {
-        let languageViewController = storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
-        languageViewController.modalPresentationStyle = .overCurrentContext
-        languageViewController.delegate = self
-        present(languageViewController, animated: true, completion: nil)
+       presentLanguageController(languageType: Constants.LanguageType.origin)
     }
 
     @IBAction func destinationLanguageAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+       presentLanguageController(languageType: Constants.LanguageType.destination)
     }
     
     @IBAction func changeLanguagesAction(_ sender: Any) {
+        let backup = originLanguage
+        originLanguage = destinationLanguage
+        destinationLanguage = backup
+        updateLanguagesLabels()
     }
+    
+    @IBAction func translateAction(_ sender: Any) {
+        view.endEditing(true)
+        showActivityIndicator()
+        APIManager.createTranslate(originalLanguage: originLanguage!, destinationLanguage: destinationLanguage!, textToTranslate: originLanguageTextView.text) { (textTranslated) in
+            self.hideActivityIndicator()
+            self.destinationLanguageTextView.text = textTranslated!
+        }
+    }
+    func presentLanguageController(languageType: Constants.LanguageType){
+        let languageViewController = storyboard?.instantiateViewController(withIdentifier: "LanguageViewController") as! LanguageViewController
+        languageViewController.modalPresentationStyle = .overCurrentContext
+        languageViewController.delegate = self
+        languageViewController.languageType = languageType
+        languageViewController.languagesArray = languagesArray!
+        present(languageViewController, animated: true, completion: nil)
+    }
+    
+    func updateLanguagesLabels(){
+        originLanguageLabel.text = originLanguage?.uppercased()
+        destinationLanguageLabel.text = destinationLanguage?.uppercased()
+    }
+    
 }
-
 
 extension ViewController: LanguageDelegate{
     func closePopover() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func selectedLanguage(languageType: Constants.LanguageType, languageSelected: String) {
+        closePopover()
+        switch languageType {
+        case .origin:
+            originLanguage = languageSelected
+            break
+        case .destination:
+            destinationLanguage = languageSelected
+            break
+        }
+        updateLanguagesLabels()
     }
 }
 
