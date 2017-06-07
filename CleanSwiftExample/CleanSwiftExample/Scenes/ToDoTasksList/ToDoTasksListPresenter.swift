@@ -12,11 +12,13 @@
 import UIKit
 
 protocol ToDoTasksListPresenterInput{
-    func presentSomething(response: ToDoTasksList.Response)
+    func responseTestInformation(response: ToDoTasksList.TestInformation.Response)
+    func responseDataSource(response: ToDoTasksList.DataSource.Response)
 }
 
 protocol ToDoTasksListPresenterOutput: class{
-    func displaySomething(viewModel: ToDoTasksList.ViewModel)
+    func displayTestInformation(viewModel: ToDoTasksList.TestInformation.ViewModel)
+    func displayDataSource(viewModel: ToDoTasksList.DataSource.ViewModel)
 }
 
 class ToDoTasksListPresenter: ToDoTasksListPresenterInput{
@@ -24,10 +26,13 @@ class ToDoTasksListPresenter: ToDoTasksListPresenterInput{
     
     // MARK: Presentation logic
     
-    func presentSomething(response: ToDoTasksList.Response){
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        
-        let viewModel = ToDoTasksList.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func responseTestInformation(response: ToDoTasksList.TestInformation.Response){
+        let viewModel = ToDoTasksList.TestInformation.ViewModel(numberText: "\(response.number)")
+        output.displayTestInformation(viewModel: viewModel)
+    }
+    
+    func responseDataSource(response: ToDoTasksList.DataSource.Response){
+        let viewModel = ToDoTasksList.DataSource.ViewModel(tasks: response.tasks.map{ToDoTasksList.TaskModelCell(text: $0.text, counter: "\($0.counter)")})
+        output.displayDataSource(viewModel: viewModel)
     }
 }

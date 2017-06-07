@@ -12,17 +12,21 @@
 import UIKit
 
 protocol ToDoTasksListViewControllerInput{
-    func displaySomething(viewModel: ToDoTasksList.ViewModel)
+    func displayTestInformation(viewModel: ToDoTasksList.TestInformation.ViewModel)
+    func displayDataSource(viewModel: ToDoTasksList.DataSource.ViewModel)
 }
 
 protocol ToDoTasksListViewControllerOutput{
-    func doSomething(request: ToDoTasksList.Request)
+    func requestTestInformation(request: ToDoTasksList.TestInformation.Request)
+    func requestDataSource(request: ToDoTasksList.DataSource.Request)
 }
 
 class ToDoTasksListViewController: UIViewController, ToDoTasksListViewControllerInput{
     var output: ToDoTasksListViewControllerOutput!
     var router: ToDoTasksListRouter!
+    var taskArray: [ToDoTasksList.TaskModelCell] = []
     
+    @IBOutlet weak var tableView: UITableView!
     // MARK: Object lifecycle
     
     override func awakeFromNib(){
@@ -34,23 +38,51 @@ class ToDoTasksListViewController: UIViewController, ToDoTasksListViewController
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        doSomethingOnLoad()
+        requestTestInformation(number: "5")
+        requestDataSource()
+        registerCustomCell()
     }
     
     // MARK: Event handling
     
-    func doSomethingOnLoad(){
-        // NOTE: Ask the Interactor to do some work
-        
-        let request = ToDoTasksList.Request()
-        output.doSomething(request: request)
+    func requestTestInformation(number: String){
+        let request = ToDoTasksList.TestInformation.Request(numberText: number)
+        output.requestTestInformation(request: request)
+    }
+    
+    
+    func requestDataSource(){
+        let request = ToDoTasksList.DataSource.Request()
+        output.requestDataSource(request: request)
+    }
+    
+    func displayDataSource(viewModel: ToDoTasksList.DataSource.ViewModel){
+        print("ARRAY SIZE: \(viewModel.tasks.count)")
+        taskArray = viewModel.tasks
+        tableView.reloadData()
     }
     
     // MARK: Display logic
-    
-    func displaySomething(viewModel: ToDoTasksList.ViewModel){
-        // NOTE: Display the result from the Presenter
-        
-        // nameTextField.text = viewModel.name
+    func displayTestInformation(viewModel: ToDoTasksList.TestInformation.ViewModel){
+        print("EL RESULTADO ES \(viewModel.numberText)")
     }
+}
+
+extension ToDoTasksListViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func registerCustomCell(){
+        let nib = UINib(nibName: "ToDoListCustomCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "ToDoListCustomCell")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return taskArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoListCustomCell") as! ToDoListCustomCell
+        cell.setupCell(task: taskArray[indexPath.row])
+        return cell
+    }
+
 }

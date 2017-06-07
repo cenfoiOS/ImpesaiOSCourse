@@ -14,7 +14,19 @@ import UIKit
 class ToDoTasksListWorker{
     // MARK: Business Logic
     
-    func doSomeWork(){
-        // NOTE: Do the work
+    var taskArray :[ToDoTasksList.Task] = []
+    
+    func multiply(number:String) -> Int{
+        return Int(number)! * 2
+    }
+    
+    
+    func getDataSource() -> [ToDoTasksList.Task]{
+        if taskArray.count == 0{
+            taskArray.append(ToDoTasksList.Task(text: "TO DO #1", counter: 1))
+            taskArray.append(ToDoTasksList.Task(text: "TO DO #2", counter: 2))
+            taskArray.append(ToDoTasksList.Task(text: "TO DO #3", counter: 3))
+        }
+        return taskArray
     }
 }

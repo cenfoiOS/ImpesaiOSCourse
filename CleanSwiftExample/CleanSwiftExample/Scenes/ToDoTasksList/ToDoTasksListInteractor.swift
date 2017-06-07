@@ -12,28 +12,28 @@
 import UIKit
 
 protocol ToDoTasksListInteractorInput{
-    func doSomething(request: ToDoTasksList.Request)
+    func requestTestInformation(request: ToDoTasksList.TestInformation.Request)
+    func requestDataSource(request: ToDoTasksList.DataSource.Request)
 }
 
 protocol ToDoTasksListInteractorOutput{
-    func presentSomething(response: ToDoTasksList.Response)
+    func responseTestInformation(response: ToDoTasksList.TestInformation.Response)
+    func responseDataSource(response: ToDoTasksList.DataSource.Response)
 }
 
 class ToDoTasksListInteractor: ToDoTasksListInteractorInput{
     var output: ToDoTasksListInteractorOutput!
-    var worker: ToDoTasksListWorker!
+    var worker = ToDoTasksListWorker()
     
     // MARK: Business logic
     
-    func doSomething(request: ToDoTasksList.Request){
-        // NOTE: Create some Worker to do the work
-        
-        worker = ToDoTasksListWorker()
-        worker.doSomeWork()
-        
-        // NOTE: Pass the result to the Presenter
-        
-        let response = ToDoTasksList.Response()
-        output.presentSomething(response: response)
+    func requestTestInformation(request: ToDoTasksList.TestInformation.Request){
+        let response = ToDoTasksList.TestInformation.Response(number: worker.multiply(number: request.numberText))
+        output.responseTestInformation(response: response)
+    }
+    
+    func requestDataSource(request: ToDoTasksList.DataSource.Request){
+        let response = ToDoTasksList.DataSource.Response(tasks: worker.getDataSource())
+        output.responseDataSource(response: response)
     }
 }

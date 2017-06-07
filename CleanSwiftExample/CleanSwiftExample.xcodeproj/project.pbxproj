@@ -26,6 +26,8 @@
 		789842BB1EE7748800AF1A48 /* ToDoTasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789842B41EE7748800AF1A48 /* ToDoTasksListViewController.swift */; };
 		789842BC1EE7748800AF1A48 /* ToDoTasksListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789842B51EE7748800AF1A48 /* ToDoTasksListWorker.swift */; };
 		789842BE1EE774B000AF1A48 /* ToDoTasksList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 789842BD1EE774B000AF1A48 /* ToDoTasksList.storyboard */; };
+		789842C21EE7903800AF1A48 /* ToDoListCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789842C01EE7903800AF1A48 /* ToDoListCustomCell.swift */; };
+		789842C31EE7903800AF1A48 /* ToDoListCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789842C11EE7903800AF1A48 /* ToDoListCustomCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		789842B41EE7748800AF1A48 /* ToDoTasksListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoTasksListViewController.swift; path = Scenes/ToDoTasksList/ToDoTasksListViewController.swift; sourceTree = "<group>"; };
 		789842B51EE7748800AF1A48 /* ToDoTasksListWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoTasksListWorker.swift; path = Scenes/ToDoTasksList/ToDoTasksListWorker.swift; sourceTree = "<group>"; };
 		789842BD1EE774B000AF1A48 /* ToDoTasksList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ToDoTasksList.storyboard; path = Scenes/ToDoTasksList/ToDoTasksList.storyboard; sourceTree = "<group>"; };
+		789842C01EE7903800AF1A48 /* ToDoListCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoListCustomCell.swift; path = Scenes/ToDoTasksList/CustomCell/ToDoListCustomCell.swift; sourceTree = "<group>"; };
+		789842C11EE7903800AF1A48 /* ToDoListCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ToDoListCustomCell.xib; path = Scenes/ToDoTasksList/CustomCell/ToDoListCustomCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +107,9 @@
 		7898429D1EE771C900AF1A48 /* ToDoTasksList */ = {
 			isa = PBXGroup;
 			children = (
-				789842AF1EE7748800AF1A48 /* ToDoTasksListConfigurator.swift */,
+				789842BF1EE7900A00AF1A48 /* CustomCell */,
 				789842BD1EE774B000AF1A48 /* ToDoTasksList.storyboard */,
+				789842AF1EE7748800AF1A48 /* ToDoTasksListConfigurator.swift */,
 				789842B01EE7748800AF1A48 /* ToDoTasksListInteractor.swift */,
 				789842B11EE7748800AF1A48 /* ToDoTasksListModels.swift */,
 				789842B21EE7748800AF1A48 /* ToDoTasksListPresenter.swift */,
@@ -128,6 +133,15 @@
 				789842AD1EE773E300AF1A48 /* AddToDoTask.storyboard */,
 			);
 			name = AddToDoTask;
+			sourceTree = "<group>";
+		};
+		789842BF1EE7900A00AF1A48 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				789842C01EE7903800AF1A48 /* ToDoListCustomCell.swift */,
+				789842C11EE7903800AF1A48 /* ToDoListCustomCell.xib */,
+			);
+			name = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +207,7 @@
 				789842951EE76E6B00AF1A48 /* LaunchScreen.storyboard in Resources */,
 				789842AE1EE773E300AF1A48 /* AddToDoTask.storyboard in Resources */,
 				789842921EE76E6B00AF1A48 /* Assets.xcassets in Resources */,
+				789842C31EE7903800AF1A48 /* ToDoListCustomCell.xib in Resources */,
 				789842BE1EE774B000AF1A48 /* ToDoTasksList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789842C21EE7903800AF1A48 /* ToDoListCustomCell.swift in Sources */,
 				789842A81EE7737300AF1A48 /* AddToDoTaskModels.swift in Sources */,
 				7898428B1EE76E6B00AF1A48 /* AppDelegate.swift in Sources */,
 				789842BC1EE7748800AF1A48 /* ToDoTasksListWorker.swift in Sources */,
